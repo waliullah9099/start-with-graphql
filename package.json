@@ -10,10 +10,11 @@
     "graphql": "^16.10.0"
   },
   "scripts": {
-    "compile": "tsc",
-    "start": "npm run compile && node ./dist/index.js"
+    "compile": "tsc -w",
+    "start": "nodemon ./dist/index.js"
   },
   "devDependencies": {
+    "nodemon": "^3.1.9",
     "typescript": "^5.7.3"
   }
 }
