@@ -14,9 +14,18 @@ export const resolvers = {
   },
 
   Product: {
-    category: (parent, args, content) => {
-      //   console.log(parent, args, content);
-      return db.categories.find((cat) => cat.id === parent.categoryId);
+    category: ({ categoryId }, args: any, content: any) => {
+      //   console.log(parent, args: any, content: any);
+      return db.categories.find((cat) => cat.id === categoryId);
+    },
+    reviews: ({ id }, args: any, content: any) => {
+      return db.reviews.filter((review) => review.productId === id);
+    },
+  },
+
+  Category: {
+    products: ({ id }, args: any, content: any) => {
+      return db.products.filter((product) => product.categoryId === id);
     },
   },
 };
